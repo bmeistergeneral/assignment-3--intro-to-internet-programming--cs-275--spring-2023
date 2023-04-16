@@ -12,3 +12,11 @@ showModalLink.addEventListener('click', () => {
     modal.classList.remove(`hide-modal-panel`);
 });
 
+modal.addEventListener('click', (e) => {
+    // If an element that isn't the parent is clicked on, don't do anything. If only 
+    // the parent is clicked on, then it hides.
+    if (e.target !== e.currentTarget) return;
+
+    modal.classList.add(`hide-modal-panel`);
+});
+
