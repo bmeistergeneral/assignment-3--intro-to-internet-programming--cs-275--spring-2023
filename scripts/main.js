@@ -1,6 +1,12 @@
 let modal = document.querySelector('.modal-panel');
 let modalContent = document.querySelector('.modal-content');
 
+let textContent = document.createElement('p');
+modalContent.appendChild(textContent);
+textContent.innerHTML = "Hi, my name is Brecon";
+
+
+
 let showMenuLink = document.getElementById(`showMenuLink`);
 let showModalLink = document.getElementById(`showModalLink`);
 
@@ -19,4 +25,12 @@ modal.addEventListener('click', (e) => {
 
     modal.classList.add(`hide-modal-panel`);
 });
+
+document.onkeydown = function(e) {
+    if (e.key === "Escape" || e.key === "Esc") {
+        modal.classList.add("hide-modal-panel");
+    }
+}
+
+
 

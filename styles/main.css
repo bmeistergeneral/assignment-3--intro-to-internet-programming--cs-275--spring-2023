@@ -66,3 +66,17 @@ a {
 .hide-modal-panel {
     visibility: hidden;
 }
+
+.modal-content {
+    text-align: center;
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif;
+}
+
+/* #menuOne {
+    border: 1px solid red;
+}
+
+#menuTwo {
+    border: 1px solid blue;
+} */
