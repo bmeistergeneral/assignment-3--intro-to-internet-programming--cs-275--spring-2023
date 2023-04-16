@@ -43,7 +43,7 @@ a {
 }
 
 .modal-panel {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -52,14 +52,17 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    visibility: hidden;
 }
 
 .modal-content-pane {
-    background-color: red;
+    background-color: white;
     width: 50vw;
     height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.hide-modal-panel {
+    visibility: hidden;
 }

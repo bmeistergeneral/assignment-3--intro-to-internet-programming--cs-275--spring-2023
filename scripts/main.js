@@ -1,5 +1,4 @@
-let modal = document.querySelector('.modal-content-pane');
-let modalBox = document.querySelector('.modal-panel');
+let modal = document.querySelector('.modal-panel');
 let modalContent = document.querySelector('.modal-content');
 
 let showMenuLink = document.getElementById(`showMenuLink`);
@@ -10,6 +9,6 @@ showMenuLink.addEventListener('click', () => {
 });
 
 showModalLink.addEventListener('click', () => {
-    alert("Testing");
+    modal.classList.remove(`hide-modal-panel`);
 });
 
