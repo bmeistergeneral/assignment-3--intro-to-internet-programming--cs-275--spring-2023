@@ -1,6 +1,7 @@
 const { src, dest, series, watch } = require(`gulp`),
-    CSSLinter = require(`gulp-stylelint`);
-    jsLinter = require(`gulp-eslint`);
+    CSSLinter = require(`gulp-stylelint`),
+    jsLinter = require(`gulp-eslint`),
+    babel = require(`gulp-babel`);
 
 let lintCSS = () => {
     return src(`./styles/*.css`)
@@ -18,6 +19,12 @@ let lintJS = () => {
         .pipe(jsLinter.formatEach(`compact`));
 };
 
+let transpileJSForDev = () => {
+    return src(`./scripts/*.js`)
+        .pipe(babel())
+        .pipe(dest(`temp/scripts`));
+};
+
 exports.lintCSS = lintCSS;
 exports.lintJS = lintJS;
-
+exports.transpileJSForDev = transpileJSForDev;
