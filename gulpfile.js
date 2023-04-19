@@ -3,7 +3,8 @@ const { src, dest, series, watch } = require(`gulp`),
     jsLinter = require(`gulp-eslint`),
     babel = require(`gulp-babel`),
     browserSync = require(`browser-sync`),
-    reload = browserSync.reload;
+    reload = browserSync.reload,
+    htmlCompressor = require(`gulp-htmlmin`);
 
 let lintCSS = () => {
     return src(`./styles/*.css`)
@@ -48,10 +49,17 @@ let serve = () => {
         .on(`change`, reload);
 };
 
+let compressHTML = () => {
+    return src([`./*.html`])
+        .pipe(htmlCompressor({collapseWhitespace: true}))
+        .pipe(dest(`prod`));
+};
 
 exports.lintCSS = lintCSS;
 exports.lintJS = lintJS;
 exports.transpileJSForDev = transpileJSForDev;
+exports.compressHTML = compressHTML;
+
 exports.default = series(
     lintCSS,
     lintJS,
