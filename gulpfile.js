@@ -83,3 +83,9 @@ exports.default = series(
     transpileJSForDev,
     serve
 );
+
+exports.build = series(
+    compressHTML,
+    transpileJSForProd,
+    compressCSS
+);
