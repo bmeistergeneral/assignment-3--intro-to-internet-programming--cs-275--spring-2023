@@ -4,7 +4,8 @@ const { src, dest, series, watch } = require(`gulp`),
     babel = require(`gulp-babel`),
     browserSync = require(`browser-sync`),
     reload = browserSync.reload,
-    htmlCompressor = require(`gulp-htmlmin`);
+    htmlCompressor = require(`gulp-htmlmin`),
+    jsCompressor = require(`gulp-uglify`);
 
 let lintCSS = () => {
     return src(`./styles/*.css`)
@@ -55,10 +56,18 @@ let compressHTML = () => {
         .pipe(dest(`prod`));
 };
 
+let transpileJSForProd = () => {
+    return src(`./scripts/*.js`)
+        .pipe(babel())
+        .pipe(jsCompressor())
+        .pipe(dest(`prod/scripts`));
+};
+
 exports.lintCSS = lintCSS;
 exports.lintJS = lintJS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.compressHTML = compressHTML;
+exports.transpileJSForProd = transpileJSForProd;
 
 exports.default = series(
     lintCSS,
