@@ -1,17 +1,17 @@
 let modal = document.querySelector(`.modal-panel`);
 let modalContent = document.querySelector(`.modal-content`);
+let menu = document.querySelector(`.menu-container`);
 
 let textContent = document.createElement(`p`);
 modalContent.appendChild(textContent);
 textContent.innerHTML = `Hi, my name is Brecon`;
 
-
-
 let showMenuLink = document.getElementById(`showMenuLink`);
 let showModalLink = document.getElementById(`showModalLink`);
 
 showMenuLink.addEventListener(`click`, () => {
-    alert(`Testing Menu`);
+    menu.classList.toggle(`hide-menu`);
+    menu.classList.toggle(`show-menu`);
 });
 
 showModalLink.addEventListener(`click`, () => {
