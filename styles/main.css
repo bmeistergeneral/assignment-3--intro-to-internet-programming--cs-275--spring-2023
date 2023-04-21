@@ -71,7 +71,6 @@ nav {
   right: 0;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   overflow: hidden; /* this crops all child elements of the nav */
 }
 
@@ -82,7 +81,6 @@ nav ul {
 
 nav ul li {
   list-style-type: none; /* removes bullet points */
-  float: left; /* makes list items horizontal */
   line-height: 30px; /* makes textbox as high as list item, makes text vertically centered */
   border: 2px solid rgb(0, 191, 228);
   text-align: center;
@@ -96,12 +94,38 @@ nav ul li ul li {
   list-style-type: none;
 }
 
-.hide-menu {
+.nav-is-menu.hide-menu {
   height: 0;
   transition: all .5s ease-in-out;
 }
 
-.show-menu {
-  height: 50px;
+.nav-is-menu.show-menu {
+  height: 34px;
+  transition: all .5s ease-in-out;
+}
+
+.nav-is-menu {
+  justify-content: center;
+}
+
+.nav-is-menu ul li {
+  float: left; /* makes list items horizontal */
+}
+
+.nav-is-side-tray {
+  justify-content: flex-start;
+}
+
+.nav-is-side-tray ul li {
+  float: none;
+}
+
+.nav-is-side-tray.hide-menu {
+  width: 0;
+  transition: all .5s ease-in-out;
+}
+
+.nav-is-side-tray.show-menu {
+  width: 124px;
   transition: all .5s ease-in-out;
 }
