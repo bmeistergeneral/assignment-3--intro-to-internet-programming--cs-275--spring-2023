@@ -10,25 +10,19 @@ textContent.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit
 let showMenuLink = document.getElementById(`showMenuLink`);
 let showModalLink = document.getElementById(`showModalLink`);
 
-let oldViewportWidth = window.innerWidth;
+// Doing this here because viewport width will change over time.
+let currentViewportWidth = window.innerWidth;
 let viewportThreshold = 736;
+ 
+if (currentViewportWidth <= viewportThreshold) {
+    menu.classList.remove(`nav-is-menu`);
+    menu.classList.add(`nav-is-side-tray`);
+} else if (currentViewportWidth > viewportThreshold) {
+    menu.classList.remove(`nav-is-side-tray`);
+    menu.classList.add(`nav-is-menu`);
+}
 
 showMenuLink.addEventListener(`click`, () => {
-    // Doing this here because viewport width will change over time.
-    let viewportWidth = window.innerWidth;
- 
-    // Only need to decide viewport width before it's going to show. (hidden state)
-    if (menu.classList.contains(`hide-menu`)) {
-
-        if (viewportWidth <= viewportThreshold) {
-            menu.classList.remove(`nav-is-menu`);
-            menu.classList.add(`nav-is-side-tray`);
-        } else if (viewportWidth > viewportThreshold) {
-            menu.classList.remove(`nav-is-side-tray`);
-            menu.classList.add(`nav-is-menu`);
-        }
-    }
-
     menu.classList.toggle(`hide-menu`);
     menu.classList.toggle(`show-menu`);
 });
@@ -55,8 +49,8 @@ window.addEventListener(`resize`, () => {
     let newViewportWidth = window.innerWidth;
 
     // Comparing old and new viewport widths to see if it crossed threshold.
-    if ((oldViewportWidth < viewportThreshold && newViewportWidth > viewportThreshold) ||
-        (oldViewportWidth > viewportThreshold && newViewportWidth < viewportThreshold)) {
+    if ((currentViewportWidth < viewportThreshold && newViewportWidth > viewportThreshold) ||
+        (currentViewportWidth > viewportThreshold && newViewportWidth < viewportThreshold)) {
         
         document.location.reload(true);
     }
