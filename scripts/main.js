@@ -3,8 +3,9 @@ let modalContent = document.querySelector(`.modal-content`);
 let menu = document.querySelector(`.menu-container`);
 
 let textContent = document.createElement(`p`);
+textContent.classList.add(`modal-text`);
 modalContent.appendChild(textContent);
-textContent.innerHTML = `Hi, my name is Brecon`;
+textContent.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`;
 
 let showMenuLink = document.getElementById(`showMenuLink`);
 let showModalLink = document.getElementById(`showModalLink`);

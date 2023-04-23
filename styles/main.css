@@ -129,3 +129,7 @@ nav ul li ul li {
   width: 124px;
   transition: all .5s ease-in-out;
 }
+
+p.modal-text {
+  padding: 15%;
+}
