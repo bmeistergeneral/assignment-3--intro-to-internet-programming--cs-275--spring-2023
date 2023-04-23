@@ -130,6 +130,6 @@ nav ul li ul li {
   transition: all .5s ease-in-out;
 }
 
-p.modal-text {
+.modal-text {
   padding: 15%;
-}}
+}

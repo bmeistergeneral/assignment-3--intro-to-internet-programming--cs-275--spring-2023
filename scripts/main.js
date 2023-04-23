@@ -5,7 +5,7 @@ let menu = document.querySelector(`.menu-container`);
 let textContent = document.createElement(`p`);
 textContent.classList.add(`modal-text`);
 modalContent.appendChild(textContent);
-textContent.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`;
+textContent.innerHTML = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut`;
 
 let showMenuLink = document.getElementById(`showMenuLink`);
 let showModalLink = document.getElementById(`showModalLink`);
@@ -51,7 +51,7 @@ document.onkeydown = function(e) {
     }
 };
 
-window.addEventListener(`resize`, (e) => {
+window.addEventListener(`resize`, () => {
     let newViewportWidth = window.innerWidth;
 
     if ((oldViewportWidth < viewportThreshold && newViewportWidth > viewportThreshold) ||
