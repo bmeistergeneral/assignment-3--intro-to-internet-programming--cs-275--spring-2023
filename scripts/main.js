@@ -10,6 +10,21 @@ let showMenuLink = document.getElementById(`showMenuLink`);
 let showModalLink = document.getElementById(`showModalLink`);
 
 showMenuLink.addEventListener(`click`, () => {
+    // Doing this here because viewport width will change over time.
+    let viewportWidth = window.innerWidth;
+ 
+    // Only need to decide viewport width before it's going to show. (hidden state)
+    if (menu.classList.contains(`hide-menu`)) {
+
+        if (viewportWidth <= 736) {
+            menu.classList.remove(`nav-is-menu`);
+            menu.classList.add(`nav-is-side-tray`);
+        } else if (viewportWidth > 736) {
+            menu.classList.remove(`nav-is-side-tray`);
+            menu.classList.add(`nav-is-menu`);
+        }
+    }
+
     menu.classList.toggle(`hide-menu`);
     menu.classList.toggle(`show-menu`);
 });
