@@ -20,10 +20,10 @@ showMenuLink.addEventListener(`click`, () => {
     // Only need to decide viewport width before it's going to show. (hidden state)
     if (menu.classList.contains(`hide-menu`)) {
 
-        if (viewportWidth <= 736) {
+        if (viewportWidth <= viewportThreshold) {
             menu.classList.remove(`nav-is-menu`);
             menu.classList.add(`nav-is-side-tray`);
-        } else if (viewportWidth > 736) {
+        } else if (viewportWidth > viewportThreshold) {
             menu.classList.remove(`nav-is-side-tray`);
             menu.classList.add(`nav-is-menu`);
         }
@@ -54,6 +54,7 @@ document.onkeydown = function(e) {
 window.addEventListener(`resize`, () => {
     let newViewportWidth = window.innerWidth;
 
+    // Comparing old and new viewport widths to see if it crossed threshold.
     if ((oldViewportWidth < viewportThreshold && newViewportWidth > viewportThreshold) ||
         (oldViewportWidth > viewportThreshold && newViewportWidth < viewportThreshold)) {
         
